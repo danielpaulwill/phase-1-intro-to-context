@@ -13,7 +13,7 @@ function createEmployeeRecord(array) {
 
 function createEmployeeRecords(array) {
   console.log(`employeeRecords length: ${array.length}`)
-  array.map(employee => {
+  let employeeRecords = array.map(employee => {
     console.log(`employee length: ${employee.length}`)
     createEmployeeRecord(employee)
     })
