@@ -11,13 +11,14 @@ function createEmployeeRecord(array) {
   return employeeRecord
 };
 
-function createEmployeeRecords(employeeRecords) {
-  console.log(`employeeRecords length: ${employeeRecords.length}`)
-  employeeRecords.map(employee => {
+function createEmployeeRecords(array) {
+  console.log(`employeeRecords length: ${array.length}`)
+  array.map(employee => {
     console.log(`employee length: ${employee.length}`)
     createEmployeeRecord(employee)
-    }
-  )};
+    })
+    return employeeRecords
+};
 
   let twoRows = [
     ["moe", "sizlak", "barkeep", 2],
