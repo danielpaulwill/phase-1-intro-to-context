@@ -1,4 +1,13 @@
-let employeeRecords = []
+let employeeRecord = {
+  firstName: `Garfield`,
+  familyName: `Arbuckle`,
+  title: `Cat`,
+  payPerHour: 3,
+  timeInEvents: [],
+  timeOutEvents: []
+}
+
+let dateStamp = "YYYY-MM-DD HHMM"
 
 
 function createEmployeeRecord(array1) {
@@ -10,38 +19,26 @@ function createEmployeeRecord(array1) {
     timeInEvents: [],
     timeOutEvents: []
   }
-  console.log(`employeeRecord from INSIDE the function: ${employeeRecord[0]}`)
   return employeeRecord
 };
 
-
 function createEmployeeRecords(array2) {
+  let employeeRecords = []
   array2.forEach(employee => {
-    createEmployeeRecord(employee) 
-    console.log(`employeeRecords BEFORE push: ${employeeRecords}`)
+    let employeeRecord = createEmployeeRecord(employee) 
     employeeRecords.push(employeeRecord)
-    console.log(`employeeRecords AFTER push: ${employeeRecords}`)
   })
-    return employeeRecords
+  return employeeRecords
 };
 
 
-let dataEmployees = [
-  ["Thor", "Odinsson", "Electrical Engineer", 45],
-  ["Loki", "Laufeysson-Odinsson", "HR Representative", 35],
-  ["Natalia", "Romanov", "CEO", 150],
-  ["Darcey", "Lewis", "Intern", 15],
-  ["Jarvis", "Stark", "CIO", 125],
-  ["Anthony", "Stark", "Angel Investor", 300],
-  ["Byron", "Poodle", "Mascot", 3],
-  ["Julius", "Caesar", "General", 27],
-  ["Rafiki", "", "Aide", 10],
-  ["Simba", "", "King", 100]
-]
-
-  createEmployeeRecords(dataEmployees)
-
-
-
-
-  
+function createTimeInEvent(employeeRecord, "YYYY-MM-DD HHMM") {
+  let timeData = dateStamp.split(' ')
+  employeeRecord.timeInEvents = {
+    type: "TimeIn",
+    hour: `${timeData[1]}`,
+    date: `${timeData[0]}`
+  }
+  console.log(employeeRecord.timeInEvents.type)
+  return employeeRecord
+}
