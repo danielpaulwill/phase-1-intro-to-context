@@ -39,6 +39,18 @@ function createTimeOutEvent(employeeRecord, dateStamp) {
   return employeeRecord
 }
 
+function hoursWorkedOnDate(employeeRecord, date) {
+  if (date === employeeRecord.timeInEvents[0].date) {
+let hoursWorked = (employeeRecord.timeOutEvents[0].hour - employeeRecord.timeInEvents[0].hour)/100
+return hoursWorked
+}};
+
+function wagesEarnedOnDate(employeeRecord, date) {
+let payOwed = hoursWorkedOnDate(employeeRecord, date) * employeeRecord.payPerHour
+console.log(`date inside of wagesEarnedOnDate: ${date}`)
+return payOwed
+}
+
 let employeeRecord = {
     firstName: 'Garfield',
     familyName: 'Arbuckle',
@@ -56,23 +68,11 @@ let employeeRecord = {
     }]
   };
 
-function hoursWorkedOnDate(employeeRecord, date) {
-  if (date === employeeRecord.timeInEvents[0].date) {
-let hoursWorked = (employeeRecord.timeOutEvents[0].hour - employeeRecord.timeInEvents[0].hour)/100
-return hoursWorked
-}};
-
-function wagesEarnedOnDate(employeeRecord, date) {
-let payOwed = hoursWorkedOnDate(employeeRecord, date) * employeeRecord.payPerHour
-console.log(date)
-console.log(`employeeRecord.employeeRecord.timeInEvents[0].date: ${employeeRecord.employeeRecord.timeInEvents[0].date}`)
-return payOwed
-}
 
 function allWagesFor(employeeRecord) {
-  console.log(`employeeRecord.employeeRecord.timeInEvents[0].date: ${employeeRecord.employeeRecord.timeInEvents[0].date}`)
-  employeeRecord.employeeRecord.timeInEvents[0].date.forEach(date => {
+  let employeeDate = employeeRecord.timeInEvents[0].date
+  console.log(employeeDate)
+  employeeDate.forEach(date => {
   wagesEarnedOnDate(employeeRecord, date)
-  
-})
-}
+
+})};
